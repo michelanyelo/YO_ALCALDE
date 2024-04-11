@@ -1,0 +1,43 @@
+{% extends 'yo_alcalde/base.html' %}
+{% load static %}
+{% block title %}
+  LOGIN
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid login-box">
+    <div class="card mb-3" style="width: 75vw;">
+      <div class="row g-0">
+        <div class="col-md-7">
+          <div class="card-body">
+            <form class="row g-3 needs-validation form-login" novalidate>
+              <h3 class="card-title">Iniciar Sesión</h3>
+              {% csrf_token %}
+              <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="12.345.678-K" required />
+                <div class="invalid-feedback">Por favor ingresa un usuario.</div>
+              </div>
+              <div class="input-group has-validation">
+                <input type="password" class="form-control" id="inputPassword4" required />
+                <div class="invalid-feedback">Por favor ingresa una contraseña.</div>
+              </div>
+              <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+            </form>
+            <div>
+              <p class="card-text">
+                <small class="text-body-secondary"><a href="#">¿Olvidaste tu contraseña?</a></small>
+              </p>
+              <p class="card-text">
+                <button class="btn btn-primary btn-nuevo-registro" type="submit">¿No te has registrado?</button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5" style="background-color: #09A4D5;">
+          <img src="{% static 'img/img-login.png' %}" class="img-fluid rounded-start" alt="..." />
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
