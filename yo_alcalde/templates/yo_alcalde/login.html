@@ -11,15 +11,20 @@
         <div class="col-md-7">
           <div class="card-body">
             <form class="row g-3 needs-validation form-login" novalidate>
+              {% if message %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+              {% endif %}
               <h3 class="card-title">Iniciar Sesión</h3>
               {% csrf_token %}
               <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                 <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="12.345.678-K" required />
+                <div class="valid-feedback">Parece ser correcto!</div>
                 <div class="invalid-feedback">Por favor ingresa un usuario.</div>
               </div>
               <div class="input-group has-validation">
                 <input type="password" class="form-control" id="inputPassword4" required />
+                <div class="valid-feedback">Parece ser correcto!</div>
                 <div class="invalid-feedback">Por favor ingresa una contraseña.</div>
               </div>
               <button class="btn btn-primary" type="submit">Iniciar sesión</button>
@@ -29,7 +34,7 @@
                 <small class="text-body-secondary"><a href="#">¿Olvidaste tu contraseña?</a></small>
               </p>
               <p class="card-text">
-                <button class="btn btn-primary btn-nuevo-registro" type="submit">¿No te has registrado?</button>
+                <a href="{% url 'registro' %}" class="btn btn-primary btn-nuevo-registro">¿No te has registrado?</a>
               </p>
             </div>
           </div>
